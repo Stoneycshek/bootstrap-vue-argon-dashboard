@@ -6,7 +6,7 @@
         <sidebar-item
           :link="{
             name: '待辦事項',
-            path: '#!',
+            path: '/cur-apprv-task',
             icon: 'ni ni-bullet-list-67 text-primary',
           }"
         >
@@ -15,7 +15,7 @@
         <sidebar-item
             :link="{
               name: 'CSM計算資料準備',
-              path: '/icons',
+              path: '/csm-cls-add',
               icon: 'ni ni-single-copy-04 text-green'
               }"
             >
@@ -24,7 +24,7 @@
         <sidebar-item
               :link="{
                 name: 'HUB計算資料準備',
-                path: '/maps',
+                path: '/icons',
                 icon: 'ni ni-single-copy-04 text-orange'
               }">
         </sidebar-item>
@@ -32,7 +32,7 @@
         <sidebar-item
               :link="{
                 name: 'CSM轉檔作業',
-                path: '/profile',
+                path: '/tables',
                 icon: 'ni ni-chart-bar-32 text-yellow'
                 }">
         </sidebar-item>
@@ -40,7 +40,7 @@
         <sidebar-item
                 :link="{
                   name: '查詢作業',
-                  path: '/tables',
+                  path: '/dashboard',
                   icon: 'ni ni-sound-wave text-red'
                 }">
         </sidebar-item>
@@ -48,14 +48,14 @@
         <sidebar-item
                   :link="{
                     name: '系統管理作業',
-                    path: '/login',
+                    path: '/icons',
                     icon: 'ni ni-settings-gear-65 text-info'
                   }">
         </sidebar-item>
         <sidebar-item
                   :link="{
                     name: '費用分攤',
-                    path: '/register',
+                    path: '/tables',
                     icon: 'ni ni-money-coins text-pink'
                   }">
         </sidebar-item>
@@ -105,7 +105,7 @@
           <router-view></router-view>
         </fade-transition>
       </div>
-      <content-footer v-if="!$route.meta.hideFooter"></content-footer>
+      <!-- <content-footer v-if="!$route.meta.hideFooter"></content-footer> -->
     </div>
   </div>
 </template>
@@ -133,6 +133,7 @@
   import ContentFooter from './ContentFooter.vue';
   import DashboardContent from './Content.vue';
   import { FadeTransition } from 'vue2-transitions';
+  import {state} from '@/store/loggedInUser.js';
 
   export default {
     components: {
@@ -147,10 +148,16 @@
         if (isWindows) {
           initScrollbar('sidenav');
         }
+      },
+      checkLoginState() {
+        if (!state.loggedIn) {
+          this.$router.push('/login')
+        }
       }
     },
     mounted() {
-      this.initScrollbar()
+      this.checkLoginState();
+      this.initScrollbar();
     }
   };
 </script>

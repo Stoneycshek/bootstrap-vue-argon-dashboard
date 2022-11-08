@@ -12,7 +12,7 @@
                       class="mb-4">
 
             <template slot="footer">
-              <span class="text-success mr-2">3.48%</span>
+              <span class="text-success mr-2">3.49%</span>
               <span class="text-nowrap">Since last month</span>
             </template>
           </stats-card>

@@ -11,6 +11,7 @@ import BaseTable from './BaseTable.vue';
 
 import Card from './Cards/Card.vue';
 import StatsCard from './Cards/StatsCard.vue';
+import BtnCard from './Cards/BtnCard.vue';
 import BaseNav from './Navbar/BaseNav';
 import NavbarToggleButton from './Navbar/NavbarToggleButton';
 
@@ -36,6 +37,7 @@ export {
   BaseInput,
   Card,
   StatsCard,
+  BtnCard,
   BaseTable,
   BaseDropdown,
   SidebarPlugin,
@@ -48,5 +50,5 @@ export {
   BaseButton,
   Collapse,
   CollapseItem,
-  LoadingPanel
+  LoadingPanel,
 };

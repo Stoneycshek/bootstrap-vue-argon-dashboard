@@ -4,7 +4,9 @@
     class="navbar-top navbar-expand"
     :class="{'navbar-dark': type === 'default'}"
   >
-    <a href="#" aria-current="page" class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block active router-link-active"> {{$route.name}} </a>
+    <h4 class="mb-0 text-white text-uppercase d-none d-lg-inline-block active">{{$route.name}}</h4>
+
+    <!-- <a href="#" aria-current="page" class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block active router-link-active"> {{$route.name}} </a> -->
     <!-- Navbar links -->
     <b-navbar-nav class="align-items-center ml-md-auto">
       <!-- This item dont have <b-nav-item> because item have data-action/data-target on tag <a>, wich we cant add -->
@@ -15,7 +17,7 @@
       </li>
     </b-navbar-nav>
     <b-navbar-nav class="align-items-center ml-auto ml-md-0">
-        <b-form class="navbar-search form-inline mr-sm-3"
+        <!-- <b-form class="navbar-search form-inline mr-sm-3"
             :class="{'navbar-search-dark': type === 'default', 'navbar-search-light': type === 'light'}"
             id="navbar-search-main">
         <b-form-group class="mb-0">
@@ -27,7 +29,7 @@
             </div>
           </b-input-group>
         </b-form-group>
-      </b-form>
+      </b-form> -->
       <base-dropdown menu-on-right
                      class="nav-item"
                      tag="li"
@@ -36,40 +38,44 @@
         <a href="#" class="nav-link pr-0" @click.prevent slot="title-container">
           <b-media no-body class="align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="img/theme/team-4.jpg">
+                    <img alt="Image placeholder" :src="userPhotoPath">
                   </span>
             <b-media-body class="ml-2 d-none d-lg-block">
-              <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+              <span class="mb-0 text-sm  font-weight-bold">{{userName}}</span>
             </b-media-body>
           </b-media>
         </a>
 
         <template>
 
-          <b-dropdown-header class="noti-title">
+          <!-- <b-dropdown-header class="noti-title">
             <h6 class="text-overflow m-0">Welcome!</h6>
           </b-dropdown-header>
           <b-dropdown-item href="#!">
             <i class="ni ni-single-02"></i>
             <span>My profile</span>
-          </b-dropdown-item>
+          </b-dropdown-item> -->
           <b-dropdown-item href="#!">
             <i class="ni ni-settings-gear-65"></i>
-            <span>Settings</span>
+            <span>設定</span>
           </b-dropdown-item>
-          <b-dropdown-item href="#!">
+          <!-- <b-dropdown-item href="#!">
             <i class="ni ni-calendar-grid-58"></i>
             <span>Activity</span>
           </b-dropdown-item>
           <b-dropdown-item href="#!">
             <i class="ni ni-support-16"></i>
             <span>Support</span>
-          </b-dropdown-item>
+          </b-dropdown-item> -->
           <div class="dropdown-divider"></div>
-          <b-dropdown-item href="#!">
-            <i class="ni ni-user-run"></i>
+          <router-link to="/login" class="dropdown-item">
+              <i class="ni ni-button-power"></i>
+              <span>登出</span>
+          </router-link>
+          <!-- <b-dropdown-item href="/login">
+            <i class="ni ni-button-power"></i>
             <span>Logout</span>
-          </b-dropdown-item>
+          </b-dropdown-item> -->
 
         </template>
       </base-dropdown>
@@ -79,6 +85,7 @@
 <script>
 import { CollapseTransition } from 'vue2-transitions';
 import { BaseNav, Modal } from '@/components';
+import {state} from '@/store/loggedInUser.js';
 
 export default {
   components: {
@@ -97,6 +104,9 @@ export default {
     routeName() {
       const { name } = this.$route;
       return this.capitalizeFirstLetter(name);
+    },
+    userPhotoPath() {
+      return "img/theme/" + state.photoPath + ".jpg"
     }
   },
   data() {
@@ -104,7 +114,8 @@ export default {
       activeNotifications: false,
       showMenu: false,
       searchModalVisible: false,
-      searchQuery: ''
+      searchQuery: '',
+      userName: state.name,
     };
   },
   methods: {

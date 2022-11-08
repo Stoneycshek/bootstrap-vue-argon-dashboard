@@ -14,7 +14,7 @@
 
             <slot name="mobile-right">
                 <ul class="nav align-items-center d-md-none">
-                    <base-dropdown class="nav-item" menu-on-right tag="li" title-tag="a">
+                    <!-- <base-dropdown class="nav-item" menu-on-right tag="li" title-tag="a">
                         <a slot="title-container" class="nav-link nav-link-icon" href="#" role="button"
                            aria-haspopup="true" aria-expanded="false">
                             <i class="ni ni-bell-55"></i>
@@ -24,40 +24,40 @@
                         <a class="dropdown-item" href="#">Another action</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a>
-                    </base-dropdown>
+                    </base-dropdown> -->
                     <base-dropdown class="nav-item" menu-on-right tag="li" title-tag="a">
                         <a slot="title-container" class="nav-link" href="#" role="button">
                             <div class="media align-items-center">
                               <span class="avatar avatar-sm rounded-circle">
-                                <img alt="Image placeholder" src="img/theme/team-1.jpg">
+                                <img alt="Image placeholder" :src="userPhotoPath">
                               </span>
                             </div>
                         </a>
 
-                        <div class=" dropdown-header noti-title">
+                        <!-- <div class=" dropdown-header noti-title">
                             <h6 class="text-overflow m-0">Welcome!</h6>
                         </div>
                         <router-link to="/profile" class="dropdown-item">
                             <i class="ni ni-single-02"></i>
                             <span>My profile</span>
-                        </router-link>
+                        </router-link> -->
                         <router-link to="/profile" class="dropdown-item">
                             <i class="ni ni-settings-gear-65"></i>
-                            <span>Settings</span>
+                            <span>設定</span>
                         </router-link>
-                        <router-link to="/profile" class="dropdown-item">
+                        <!-- <router-link to="/profile" class="dropdown-item">
                             <i class="ni ni-calendar-grid-58"></i>
                             <span>Activity</span>
                         </router-link>
                         <router-link to="/profile" class="dropdown-item">
                             <i class="ni ni-support-16"></i>
                             <span>Support</span>
-                        </router-link>
+                        </router-link> -->
                         <div class="dropdown-divider"></div>
-                        <a href="#!" class="dropdown-item">
-                            <i class="ni ni-user-run"></i>
-                            <span>Logout</span>
-                        </a>
+                        <router-link to="/login" class="dropdown-item">
+                            <i class="ni ni-button-power"></i>
+                            <span>登出</span>
+                        </router-link>
                     </base-dropdown>
                 </ul>
             </slot>
@@ -117,7 +117,8 @@
     </nav>
 </template>
 <script>
-  import NavbarToggleButton from '@/components/NavbarToggleButton'
+  import NavbarToggleButton from '@/components/NavbarToggleButton';
+  import {state} from '@/store/loggedInUser.js';
 
   export default {
     name: 'sidebar',
@@ -140,6 +141,11 @@
       return {
         autoClose: this.autoClose
       };
+    },
+    computed: {
+      userPhotoPath() {
+        return "img/theme/" + state.photoPath + ".jpg"
+      }
     },
     methods: {
       closeSidebar() {

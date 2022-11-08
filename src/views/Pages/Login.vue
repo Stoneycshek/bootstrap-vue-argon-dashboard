@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Header -->
-    <div class="header bg-gradient-success pb-8 pt-5">
+    <div class="header bg-gradient-danger pb-8 pt-5">
       <b-container>
         <div class="header-body text-center mb-5">
           <b-row class="justify-content-center">
@@ -86,6 +86,8 @@
   </div>
 </template>
 <script>
+  import {state} from '@/store/loggedInUser.js'
+
   export default {
     data() {
       return {
@@ -100,13 +102,28 @@
       onSubmit() {
         // this will be called only after form is valid. You can do api call here to login
         console.log('Sign in btn clicked')
-        
+        console.log("state name : " + state.name);
+
         var isAuthenticated = true
 
+        if (this.model.email == "U01"){
+          state.name = "U01";
+          state.photoPath = "team-1"
+        }
+        else if (this.model.email == "U02"){
+          state.name = "U02";
+          state.photoPath = "team-2"
+        }
+        else {
+          isAuthenticated = false;
+        }
+
+        state.loggedIn = isAuthenticated;
+
         if (isAuthenticated) {
-          this.$router.push('/dashboard')
+          this.$router.push('/cur-apprv-task')
         } else {
-          console.log('ID / PW incorrent')
+          alert('帳號 / 密碼錯誤')
         }
       }
     }

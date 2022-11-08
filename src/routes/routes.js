@@ -6,7 +6,7 @@ import NotFound from '@/views/NotFoundPage.vue';
 const routes = [
   {
     path: '/',
-    redirect: 'dashboard',
+    redirect: 'cur-apprv-task',
     component: DashboardLayout,
     children: [
       {
@@ -36,6 +36,16 @@ const routes = [
         path: '/tables',
         name: 'tables',
         component: () => import(/* webpackChunkName: "demo" */ '../views/RegularTables.vue')
+      },
+      {
+        path: '/cur-apprv-task',
+        name: '待辦事項',
+        component: () => import(/* webpackChunkName: "demo" */ '../views/Poc/CurApprvTaskPage.vue')
+      },
+      {
+        path: '/csm-cls-add',
+        name: 'CSM計算資料準備',
+        component: () => import(/* webpackChunkName: "demo" */ '../views/Poc/CsmClsAddPage.vue')
       }
     ]
   },
