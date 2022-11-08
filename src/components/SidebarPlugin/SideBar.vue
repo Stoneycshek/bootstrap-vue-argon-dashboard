@@ -4,11 +4,13 @@
 
             <!--Toggler-->
             <navbar-toggle-button @click.native="showSidebar">
-                
             </navbar-toggle-button>
-            <router-link class="navbar-brand" to="/">
+            <!-- <router-link class="navbar-brand" to="/">
                 <img :src="logo" class="navbar-brand-img" alt="...">
-            </router-link>
+            </router-link> -->
+
+            <!--Heading-->
+            <h6 class="navbar-heading text-muted">IFRS 17 計算引擎系統</h6>
 
             <slot name="mobile-right">
                 <ul class="nav align-items-center d-md-none">
@@ -65,15 +67,19 @@
                 <div class="navbar-collapse-header d-md-none">
                     <div class="row">
                         <div class="col-6 collapse-brand">
-                            <router-link to="/">
+                            <h3 class="text-muted">IFRS 17 計算引擎系統</h3>
+                            <!-- <router-link to="/">
                                 <img :src="logo">
-                            </router-link>
+                            </router-link> -->
                         </div>
                         <div class="col-6 collapse-close">
                             <navbar-toggle-button @click.native="closeSidebar"></navbar-toggle-button>
                         </div>
                     </div>
                 </div>
+
+                <!--Divider-->
+                <!-- <hr class="navbar-brand my-3"> -->
 
                 <ul class="navbar-nav">
                     <slot name="links">
@@ -82,10 +88,12 @@
                 <!--Divider-->
                 <hr class="my-3">
                 <!--Heading-->
-                <h6 class="navbar-heading text-muted">Documentation</h6>
+                <!-- <h6 class="navbar-heading text-muted">Documentation</h6> -->
                 <!--Navigation-->
                 <ul class="navbar-nav mb-md-3">
-                    <li class="nav-item">
+                  <slot name="links-after">
+                  </slot>
+                    <!-- <li class="nav-item">
                         <a class="nav-link"
                            href="https://www.creative-tim.com/learning-lab/bootstrap-vue/alerts/argon-dashboard">
                             <i class="ni ni-spaceship"></i> Getting started
@@ -102,7 +110,7 @@
                            href="https://www.creative-tim.com/learning-lab/bootstrap-vue/alerts/argon-dashboard">
                             <i class="ni ni-ui-04"></i> Components
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             </div>

@@ -66,7 +66,7 @@
 
                   <!-- <b-form-checkbox v-model="model.rememberMe">Remember me</b-form-checkbox> -->
                   <div class="text-center">
-                    <base-button type="primary" native-type="submit" class="my-4">Sign in</base-button>
+                    <base-button type="primary" native-type="submit" class="my-4">登入</base-button>
                   </div>
                 </b-form>
               </validation-observer>
@@ -100,6 +100,14 @@
       onSubmit() {
         // this will be called only after form is valid. You can do api call here to login
         console.log('Sign in btn clicked')
+        
+        var isAuthenticated = true
+
+        if (isAuthenticated) {
+          this.$router.push('/dashboard')
+        } else {
+          console.log('ID / PW incorrent')
+        }
       }
     }
   };

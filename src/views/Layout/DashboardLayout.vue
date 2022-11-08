@@ -5,63 +5,76 @@
       <template slot="links">
         <sidebar-item
           :link="{
-            name: 'Dashboard',
-            path: '/dashboard',
-            icon: 'ni ni-tv-2 text-primary',
+            name: '待辦事項',
+            path: '#!',
+            icon: 'ni ni-bullet-list-67 text-primary',
           }"
         >
         </sidebar-item>
 
         <sidebar-item
             :link="{
-              name: 'Icons',
+              name: 'CSM計算資料準備',
               path: '/icons',
-              icon: 'ni ni-planet text-blue'
+              icon: 'ni ni-single-copy-04 text-green'
               }"
             >
         </sidebar-item>
 
         <sidebar-item
               :link="{
-                name: 'Maps',
+                name: 'HUB計算資料準備',
                 path: '/maps',
-                icon: 'ni ni-pin-3 text-orange'
+                icon: 'ni ni-single-copy-04 text-orange'
               }">
         </sidebar-item>
 
         <sidebar-item
               :link="{
-                name: 'User Profile',
+                name: 'CSM轉檔作業',
                 path: '/profile',
-                icon: 'ni ni-single-02 text-yellow'
+                icon: 'ni ni-chart-bar-32 text-yellow'
                 }">
         </sidebar-item>
 
         <sidebar-item
                 :link="{
-                  name: 'Tables',
+                  name: '查詢作業',
                   path: '/tables',
-                  icon: 'ni ni-bullet-list-67 text-red'
+                  icon: 'ni ni-sound-wave text-red'
                 }">
         </sidebar-item>
 
         <sidebar-item
                   :link="{
-                    name: 'Login',
+                    name: '系統管理作業',
                     path: '/login',
-                    icon: 'ni ni-key-25 text-info'
+                    icon: 'ni ni-settings-gear-65 text-info'
                   }">
         </sidebar-item>
         <sidebar-item
                   :link="{
-                    name: 'Register',
+                    name: '費用分攤',
                     path: '/register',
-                    icon: 'ni ni-circle-08 text-pink'
+                    icon: 'ni ni-money-coins text-pink'
                   }">
         </sidebar-item>
+
       </template>
 
       <template slot="links-after">
+
+        <sidebar-item
+                  :link="{
+                    name: '登出',
+                    path: '/login',
+                    icon: 'ni ni-button-power text-gray'
+                  }">
+        </sidebar-item>
+
+      </template>
+
+      <!-- <template slot="links-after">
         <hr class="my-3">
         <h6 class="navbar-heading p-0 text-muted">Documentation</h6>
 
@@ -81,7 +94,7 @@
               <b-nav-text class="p-0">Components</b-nav-text>
           </b-nav-item>
         </b-nav>
-      </template>
+      </template> -->
     </side-bar>
     <div class="main-content">
       <dashboard-navbar :type="$route.meta.navbarType"></dashboard-navbar>
