@@ -1,7 +1,6 @@
 {
   "name": "bootstrap-vue-argon-dashboard",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
