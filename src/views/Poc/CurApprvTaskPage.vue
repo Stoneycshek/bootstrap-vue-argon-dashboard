@@ -29,26 +29,25 @@
     <b-container fluid class="mt--7">
       <b-row>
         <b-col>
-          <light-table/>
+          <demo-table></demo-table>
         </b-col>
       </b-row>
       <div class="mt-5"></div>
-      <!-- <dark-table></dark-table> -->
     </b-container>
   </div>
 </template>
 <script>
   import { Dropdown, DropdownItem, DropdownMenu, Table, TableColumn } from 'element-ui';
-  import projects from '../Tables/projects'
+  import projects from '../Tables/demoDatas'
   import users from '../Tables/users'
   import LightTable from "../Tables/RegularTables/LightTable";
-  import DarkTable from "../Tables/RegularTables/DarkTable";
+  import DemoTable from "../Tables/RegularTables/DemoTable";
   import {state} from '@/store/loggedInUser.js';
 
   export default {
     components: {
       LightTable,
-      DarkTable,
+      DemoTable,
       [Dropdown.name]: Dropdown,
       [DropdownItem.name]: DropdownItem,
       [DropdownMenu.name]: DropdownMenu,
