@@ -107,12 +107,28 @@
         var isAuthenticated = true
 
         if (this.model.email == "U01"){
-          state.name = "U01";
+          state.name = "U01"
           state.photoPath = "team-1"
+          state.permissions.add = true
+          state.permissions.view = true
+          state.permissions.edit = true
+          state.permissions.delete = true
         }
         else if (this.model.email == "U02"){
-          state.name = "U02";
+          state.name = "U02"
           state.photoPath = "team-2"
+          state.permissions.add = false
+          state.permissions.view = true
+          state.permissions.edit = false
+          state.permissions.delete = false
+        }
+        else if (this.model.email == "U03"){
+          state.name = "U03"
+          state.photoPath = "team-3"          
+          state.permissions.add = false
+          state.permissions.view = true
+          state.permissions.edit = true
+          state.permissions.delete = false
         }
         else {
           isAuthenticated = false;

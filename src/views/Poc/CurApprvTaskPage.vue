@@ -1,60 +1,28 @@
 <template>
   <div>
     <base-header class="pb-6 pb-8 pt-5 pt-md-8 bg-gradient-primary">
-      <!-- Card stats -->
+      <!-- Demo btn -->
       <b-row>
-        <b-col xl="3" md="6">
-          <stats-card title="Total traffic"
-                      type="gradient-red"
-                      sub-title="350,897"
-                      icon="ni ni-active-40"
-                      class="mb-4">
+        <b-col xl="12" md="12">
+          <a href="#" v-if="state.permissions.add" class="btn btn-neutral btn-icon text-blue mr-2 mr-md-4">
+            <i class="ni ni-fat-add" style="vertical-align: middle; margin-right: 0;"></i>
+            <span class="btn-inner--text">新增</span>
+          </a>
 
-            <template slot="footer">
-              <span class="text-success mr-2">3.48%</span>
-              <span class="text-nowrap">Since last month</span>
-            </template>
-          </stats-card>
-        </b-col>
-        <b-col xl="3" md="6">
-          <stats-card title="Total traffic"
-                      type="gradient-orange"
-                      sub-title="2,356"
-                      icon="ni ni-chart-pie-35"
-                      class="mb-4">
+          <a href="#" v-if="state.permissions.view" class="btn btn-neutral btn-icon text-green mr-2 mr-md-4">
+            <i class="ni ni-sound-wave" style="vertical-align: middle; margin-right: 0;"></i>
+            <span class="btn-inner--text">查詢</span>
+          </a>
 
-            <template slot="footer">
-              <span class="text-success mr-2">12.18%</span>
-              <span class="text-nowrap">Since last month</span>
-            </template>
-          </stats-card>
-        </b-col>
-        <b-col xl="3" md="6">
-          <stats-card title="Sales"
-                      type="gradient-green"
-                      sub-title="924"
-                      icon="ni ni-money-coins"
-                      class="mb-4">
+          <a href="#" v-if="state.permissions.edit" class="btn btn-neutral btn-icon text-orange mr-2 mr-md-4">
+            <i class="ni ni-ruler-pencil" style="vertical-align: middle; margin-right: 0;"></i>
+            <span class="btn-inner--text">修改</span>
+          </a>
 
-            <template slot="footer">
-              <span class="text-danger mr-2">5.72%</span>
-              <span class="text-nowrap">Since last month</span>
-            </template>
-          </stats-card>
-
-        </b-col>
-        <b-col xl="3" md="6">
-          <stats-card title="Performance"
-                      type="gradient-info"
-                      sub-title="49,65%"
-                      icon="ni ni-chart-bar-32"
-                      class="mb-4">
-
-            <template slot="footer">
-              <span class="text-success mr-2">54.8%</span>
-              <span class="text-nowrap">Since last month</span>
-            </template>
-          </stats-card>
+          <a href="#" v-if="state.permissions.delete" class="btn btn-neutral btn-icon text-red mr-2 mr-md-4">
+            <i class="ni ni-fat-remove" style="vertical-align: middle; margin-right: 0;"></i>
+            <span class="btn-inner--text">刪除</span>
+          </a>
         </b-col>
       </b-row>
     </base-header>
@@ -75,6 +43,7 @@
   import users from '../Tables/users'
   import LightTable from "../Tables/RegularTables/LightTable";
   import DarkTable from "../Tables/RegularTables/DarkTable";
+  import {state} from '@/store/loggedInUser.js';
 
   export default {
     components: {
@@ -89,7 +58,8 @@
     data() {
       return {
         projects,
-        users
+        users,
+        state
       };
     }
   };
