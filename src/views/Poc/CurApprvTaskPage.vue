@@ -1,38 +1,27 @@
 <template>
   <div>
     <base-header class="pb-6 pb-8 pt-5 pt-md-8 bg-gradient-primary">
-      <!-- Demo btn -->
-      <b-row>
-        <b-col xl="12" md="12">
-          <a href="#" v-if="state.permissions.add" class="btn btn-neutral btn-icon text-blue mr-2 mr-md-4">
-            <i class="ni ni-fat-add" style="vertical-align: middle; margin-right: 0;"></i>
-            <span class="btn-inner--text">新增</span>
-          </a>
-
-          <a href="#" v-if="state.permissions.view" class="btn btn-neutral btn-icon text-green mr-2 mr-md-4">
-            <i class="ni ni-sound-wave" style="vertical-align: middle; margin-right: 0;"></i>
-            <span class="btn-inner--text">查詢</span>
-          </a>
-
-          <a href="#" v-if="state.permissions.edit" class="btn btn-neutral btn-icon text-orange mr-2 mr-md-4">
-            <i class="ni ni-ruler-pencil" style="vertical-align: middle; margin-right: 0;"></i>
-            <span class="btn-inner--text">修改</span>
-          </a>
-
-          <a href="#" v-if="state.permissions.delete" class="btn btn-neutral btn-icon text-red mr-2 mr-md-4">
-            <i class="ni ni-fat-remove" style="vertical-align: middle; margin-right: 0;"></i>
-            <span class="btn-inner--text">刪除</span>
-          </a>
-        </b-col>
-      </b-row>
     </base-header>
-    <b-container fluid class="mt--7">
+    <b-container fluid class="mt--9 mb-5">
       <b-row>
         <b-col>
-          <demo-table></demo-table>
+          <b-card no-body>
+            <b-tabs pills card>
+              <b-tab title="待辦事項" active>
+                <demo-table></demo-table>
+              </b-tab>
+              <b-tab title="待辦事項查詢">
+                <b-alert variant="info" show><i class="ni ni-bell-55 mr-2 align-middle"></i>15碼合約群組轉檔工作僅包含資料備份，不傳送決算結果至會計子帳</b-alert>
+                <b-alert variant="danger" show>作業訊息 : 前次決算轉檔異動(PROC_20210225-1430)尚未結案，無法使用本功能</b-alert>
+                <b-card-text>待辦事項查詢</b-card-text>
+              </b-tab>
+              <b-tab title="代理人設定">
+                <b-card-text>代理人設定</b-card-text>
+              </b-tab>
+            </b-tabs>
+          </b-card>
         </b-col>
       </b-row>
-      <div class="mt-5"></div>
     </b-container>
   </div>
 </template>

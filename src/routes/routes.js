@@ -11,7 +11,7 @@ const routes = [
     children: [
       {
         path: '/dashboard',
-        name: 'dashboard',
+        name: 'CSM轉檔作業',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
@@ -19,7 +19,7 @@ const routes = [
       },
       {
         path: '/icons',
-        name: 'icons',
+        name: '查詢作業',
         component: () => import(/* webpackChunkName: "demo" */ '../views/Icons.vue')
       },
       {
@@ -34,7 +34,7 @@ const routes = [
       },
       {
         path: '/tables',
-        name: 'tables',
+        name: '費用分攤',
         component: () => import(/* webpackChunkName: "demo" */ '../views/RegularTables.vue')
       },
       {
@@ -46,6 +46,16 @@ const routes = [
         path: '/csm-cls-add',
         name: 'CSM計算資料準備',
         component: () => import(/* webpackChunkName: "demo" */ '../views/Poc/CsmClsAddPage.vue')
+      },
+      {
+        path: '/hub-cls-add',
+        name: 'HUB計算資料準備',
+        component: () => import(/* webpackChunkName: "demo" */ '../views/Poc/HubClsAddPage.vue')
+      },
+      {
+        path: '/role-add',
+        name: '功能權限設定',
+        component: () => import(/* webpackChunkName: "demo" */ '../views/Poc/RoleAddPage.vue')
       }
     ]
   },

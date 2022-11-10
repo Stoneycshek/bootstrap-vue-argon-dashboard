@@ -13,65 +13,120 @@
         </sidebar-item>
 
         <sidebar-item
-            :link="{
-              name: 'CSM計算資料準備',
-              path: '/csm-cls-add',
-              icon: 'ni ni-single-copy-04 text-green'
-              }"
-            >
+          :link="{
+            name: 'CSM計算資料準備',
+            path: '/csm-cls-add',
+            icon: 'ni ni-single-copy-04 text-green',
+          }"
+        >
         </sidebar-item>
 
         <sidebar-item
-              :link="{
-                name: 'HUB計算資料準備',
-                path: '/icons',
-                icon: 'ni ni-single-copy-04 text-orange'
-              }">
+          :link="{
+            name: 'HUB計算資料準備',
+            path: '/hub-cls-add',
+            icon: 'ni ni-single-copy-04 text-orange',
+          }"
+        >
         </sidebar-item>
 
         <sidebar-item
-              :link="{
-                name: 'CSM轉檔作業',
-                path: '/tables',
-                icon: 'ni ni-chart-bar-32 text-yellow'
-                }">
+          v-if="state.permissions.edit"
+          :link="{
+            name: 'CSM轉檔作業',
+            path: '/dashboard',
+            icon: 'ni ni-chart-bar-32 text-yellow',
+          }"
+        >
         </sidebar-item>
 
         <sidebar-item
+          v-if="state.permissions.edit"
+          :link="{
+            name: '查詢作業',
+            path: '/icons',
+            icon: 'ni ni-sound-wave text-red',
+          }"
+        >
+        </sidebar-item>
+
+        <!-- <sidebar-item
+          v-if="state.permissions.add"
+          :link="{
+            name: '系統管理作業',
+            path: '/role-add',
+            icon: 'ni ni-settings-gear-65 text-info',
+          }"
+        >
+        </sidebar-item> -->
+
+        <a class="nav-link" v-b-toggle href="#collapse-0" @click.prevent>系統管理作業</a>
+        <b-collapse id="collapse-0" class="mt-2">
+            <a class="nav-link" v-b-toggle href="#collapse-1" @click.prevent>授權管理</a>
+            <b-collapse id="collapse-1" class="mt-2">
+              <sidebar-item
+                v-if="state.permissions.add"
                 :link="{
-                  name: '查詢作業',
-                  path: '/dashboard',
-                  icon: 'ni ni-sound-wave text-red'
-                }">
-        </sidebar-item>
+                  name: '使用者管理',
+                  path: '/role-add',
+                  icon: 'ni ni-settings-gear-65 text-info',
+                }"
+              >
+              </sidebar-item>
+              <sidebar-item
+                v-if="state.permissions.add"
+                :link="{
+                  name: '角色群組管理',
+                  path: '/role-add',
+                  icon: 'ni ni-settings-gear-65 text-info',
+                }"
+              >
+              </sidebar-item>
+              <sidebar-item
+                v-if="state.permissions.add"
+                :link="{
+                  name: '功能權限設定',
+                  path: '/role-add',
+                  icon: 'ni ni-settings-gear-65 text-info',
+                }"
+              >
+              </sidebar-item>
+            </b-collapse>
+            <a class="nav-link" v-b-toggle href="#collapse-2" @click.prevent>系統管理</a>
+            <b-collapse id="collapse-2" class="mt-2">
+              <sidebar-item
+                v-if="state.permissions.add"
+                :link="{
+                  name: '使用者活動記錄查詢',
+                  path: '/role-add',
+                  icon: 'ni ni-settings-gear-65 text-info',
+                }"
+              >
+              </sidebar-item>
+            </b-collapse>
+        </b-collapse>
 
+        
+        <!-- 
         <sidebar-item
-                  :link="{
-                    name: '系統管理作業',
-                    path: '/icons',
-                    icon: 'ni ni-settings-gear-65 text-info'
-                  }">
-        </sidebar-item>
-        <sidebar-item
+                  v-if="state.permissions.edit"
                   :link="{
                     name: '費用分攤',
                     path: '/tables',
                     icon: 'ni ni-money-coins text-pink'
                   }">
-        </sidebar-item>
-
+        </sidebar-item> -->
       </template>
 
       <template slot="links-after">
-
         <sidebar-item
-                  :link="{
-                    name: '登出',
-                    path: '/login',
-                    icon: 'ni ni-button-power text-gray'
-                  }">
+          :link="{
+            name: '登出',
+            path: '/login',
+            icon: 'ni ni-button-power text-gray',
+          }"
+        >
         </sidebar-item>
-
       </template>
 
       <!-- <template slot="links-after">
@@ -110,56 +165,61 @@
   </div>
 </template>
 <script>
-  /* eslint-disable no-new */
-  import PerfectScrollbar from 'perfect-scrollbar';
-  import 'perfect-scrollbar/css/perfect-scrollbar.css';
+/* eslint-disable no-new */
+import PerfectScrollbar from "perfect-scrollbar";
+import "perfect-scrollbar/css/perfect-scrollbar.css";
 
-  function hasElement(className) {
-    return document.getElementsByClassName(className).length > 0;
+function hasElement(className) {
+  return document.getElementsByClassName(className).length > 0;
+}
+
+function initScrollbar(className) {
+  if (hasElement(className)) {
+    new PerfectScrollbar(`.${className}`);
+  } else {
+    // try to init it later in case this component is loaded async
+    setTimeout(() => {
+      initScrollbar(className);
+    }, 100);
   }
+}
 
-  function initScrollbar(className) {
-    if (hasElement(className)) {
-      new PerfectScrollbar(`.${className}`);
-    } else {
-      // try to init it later in case this component is loaded async
-      setTimeout(() => {
-        initScrollbar(className);
-      }, 100);
-    }
-  }
+import DashboardNavbar from "./DashboardNavbar.vue";
+import ContentFooter from "./ContentFooter.vue";
+import DashboardContent from "./Content.vue";
+import { FadeTransition } from "vue2-transitions";
+import { state } from "@/store/loggedInUser.js";
 
-  import DashboardNavbar from './DashboardNavbar.vue';
-  import ContentFooter from './ContentFooter.vue';
-  import DashboardContent from './Content.vue';
-  import { FadeTransition } from 'vue2-transitions';
-  import {state} from '@/store/loggedInUser.js';
-
-  export default {
-    components: {
-      DashboardNavbar,
-      ContentFooter,
-      DashboardContent,
-      FadeTransition
-    },
-    methods: {
-      initScrollbar() {
-        let isWindows = navigator.platform.startsWith('Win');
-        if (isWindows) {
-          initScrollbar('sidenav');
-        }
-      },
-      checkLoginState() {
-        if (!state.loggedIn) {
-          this.$router.push('/login')
-        }
+export default {
+  components: {
+    DashboardNavbar,
+    ContentFooter,
+    DashboardContent,
+    FadeTransition,
+  },
+  data() {
+    return {
+      state,
+    };
+  },
+  methods: {
+    initScrollbar() {
+      let isWindows = navigator.platform.startsWith("Win");
+      if (isWindows) {
+        initScrollbar("sidenav");
       }
     },
-    mounted() {
-      this.checkLoginState();
-      this.initScrollbar();
-    }
-  };
+    checkLoginState() {
+      if (!state.loggedIn) {
+        this.$router.push("/login");
+      }
+    },
+  },
+  mounted() {
+    this.checkLoginState();
+    this.initScrollbar();
+  },
+};
 </script>
 <style lang="scss">
 </style>

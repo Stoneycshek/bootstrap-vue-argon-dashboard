@@ -1,7 +1,7 @@
 <template>
     <b-card no-body>
         <b-card-header class="border-0">
-            <h3 class="mb-0">共 9 筆</h3>
+            <h3 class="mb-0">共 {{demoDatas.length}} 筆</h3>
         </b-card-header>
 
         <el-table class="table-responsive table"
@@ -23,7 +23,7 @@
             </el-table-column> -->
             <el-table-column label="序號"
                              prop="title"
-                             min-width="40px">
+                             min-width="60px">
                              <template slot-scope="scope">
                                 <span>{{scope.$index + 1}}</span>
                             </template>
