@@ -1,6 +1,6 @@
 <template>
   <div>
-    <base-header class="pb-6 pb-8 pt-5 pt-md-8 bg-gradient-green">
+    <base-header class="pb-6 pb-8 pt-5 pt-md-8 bg-light">
       <!-- Demo btn -->
       <b-row>
         <b-col xl="12" md="12">

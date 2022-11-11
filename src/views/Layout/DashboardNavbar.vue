@@ -4,7 +4,7 @@
     class="navbar-top navbar-expand"
     :class="{'navbar-dark': type === 'default'}"
   >
-    <h4 class="mb-0 text-white text-uppercase d-none d-lg-inline-block active">{{$route.name}}</h4>
+    <h4 class="mb-0 text-gray text-uppercase active">{{$route.name}}</h4>
 
     <!-- <a href="#" aria-current="page" class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block active router-link-active"> {{$route.name}} </a> -->
     <!-- Navbar links -->

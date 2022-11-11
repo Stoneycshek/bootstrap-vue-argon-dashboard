@@ -68,7 +68,7 @@
                 v-if="state.permissions.add"
                 :link="{
                   name: '使用者管理',
-                  path: '/role-add',
+                  path: '/user-add',
                   icon: 'ni ni-settings-gear-65 text-info',
                 }"
               >

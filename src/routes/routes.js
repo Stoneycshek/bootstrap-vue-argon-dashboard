@@ -56,6 +56,11 @@ const routes = [
         path: '/role-add',
         name: '功能權限設定',
         component: () => import(/* webpackChunkName: "demo" */ '../views/Poc/RoleAddPage.vue')
+      },
+      {
+        path: '/user-add',
+        name: '使用者管理',
+        component: () => import(/* webpackChunkName: "demo" */ '../views/Poc/UserAddPage.vue')
       }
     ]
   },
