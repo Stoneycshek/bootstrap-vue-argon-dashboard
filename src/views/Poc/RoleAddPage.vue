@@ -1,16 +1,26 @@
 <template>
   <div>
-    <base-header class="pb-6 pb-8 pt-5 pt-md-8 bg-gradient-info">
+    <base-header class="pb-6 pb-8 pt-5 pt-md-8">
       <!-- Card stats -->
       <b-row>
         <b-col xl="12" md="12" class="mb-4">
           <b-card no-body class="py-4 px-4">
-            <b-card-header class="border-0">
-                <h3 class="mb-0">角色功能權限設定</h3>
+            <!-- <b-card-header class="border-0">
+                
                 <div>
-                  <b-form-select v-model="sSelected" :options="sOptions"></b-form-select>
+                  
                 </div>
-            </b-card-header>
+            </b-card-header> -->
+
+            <b-row class="mb-2">
+              <b-col>
+                <h3 class="mb-0 mr-2 d-inline">角色功能權限設定</h3>
+                <b-form-select v-model="sSelected" :options="sOptions" class="w-25 d-inline"></b-form-select>
+              </b-col>
+            </b-row>
+
+            <hr class="mt-1 mb-3">
+
             <b-form-group
               label=""
               v-slot="{ ariaDescribedby }"
@@ -72,17 +82,19 @@
         options: [
           { text: '待辦事項', value: '01', disabled: true },
           { text: 'CSM計算資料準備', value: '02' },
+          { text: '--新增', value: '021' },
+          { text: '--刪除', value: '022' },
           { text: 'HUB計算資料準備', value: '03' },
           { text: 'CSM轉檔作業', value: '04' },
           { text: '查詢作業', value: '05' },
           { text: '系統管理作業', value: '06', disabled: true },
           { text: '費用分攤', value: '07' }
         ],
-        sSelected: ['01'],
+        sSelected: '01',
         sOptions: [
-          { value: '01', text: '部長' },
-          { value: '02', text: '主管' },
-          { value: '03', text: '經辦'}
+          { value: '01', text: '群組A' },
+          { value: '02', text: '群組B' },
+          { value: '03', text: '群組C' }
         ],
       };
     }

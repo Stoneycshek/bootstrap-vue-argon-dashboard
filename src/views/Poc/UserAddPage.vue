@@ -16,77 +16,6 @@
 
               <hr class="mt-1 mb-3">
 
-              <!-- <b-row class="mb-3">
-                <b-col lg="4">
-                  <b-form-group
-                    label="使用者ID :"
-                    label-for="nested-user-id"
-                    label-cols-sm="3"
-                    label-cols-lg="5"
-                    label-align-sm="left"
-                  >
-                    <b-form-input id="nested-user-id" placeholder="A1234"></b-form-input>
-                  </b-form-group>
-                </b-col>
-                <b-col lg="4">
-                  <b-form-group
-                    label="姓名 :"
-                    label-for="nested-user-name"
-                    label-cols-sm="3"
-                    label-cols-lg="5"
-                    label-align-sm="left"
-                  >
-                    <b-form-input id="nested-user-name" placeholder="王O陸"></b-form-input>
-                  </b-form-group>
-                </b-col>
-                <b-col lg="4">
-                  <b-form-group
-                    label="部門名稱 :"
-                    label-for="nested-department-name"
-                    label-cols-sm="3"
-                    label-cols-lg="5"
-                    label-align-sm="left"
-                  >
-                    <b-form-input id="nested-department-name" placeholder="會計部"></b-form-input>
-                  </b-form-group>
-                </b-col>
-                <b-col lg="4">
-                  <b-form-group
-                    label="代理狀態 :"
-                    label-for="nested-state"
-                    label-cols-sm="3"
-                    label-cols-lg="5"
-                    label-align-sm="right"
-                  >
-                    <b-form-input id="nested-state" placeholder="Y / N"></b-form-input>
-                  </b-form-group>
-                </b-col>
-                <b-col lg="4">
-                  <b-form-group
-                    label="角色群組 :"
-                    label-for="nested-role-name"
-                    label-cols-sm="3"
-                    label-cols-lg="5"
-                    label-align-sm="right"
-                  >
-                    <b-form-input id="nested-role-name" placeholder="ACT01"></b-form-input>
-                  </b-form-group>
-                </b-col>
-                <b-col lg="4">
-                  <b-form-group
-                    label="單位名稱 :"
-                    label-for="nested-group-name"
-                    label-cols-sm="3"
-                    label-cols-lg="5"
-                    label-align-sm="right"
-                  >
-                    <b-form-input id="nested-group-name" placeholder="會計二科"></b-form-input>
-                  </b-form-group>
-                </b-col>
-              </b-row>
-
-              <hr class="mt-1 mb-3"> -->
-
               <b-row class="">
                 <b-col lg="4" md="6">
                   <b-form-input class="mb-3" placeholder="使用者ID"></b-form-input>
@@ -143,10 +72,10 @@
 
               <b-row class="">
                 <b-col class="text-right">
-                  <a href="#" class="btn btn-neutral btn-icon text-green mx-2">
+                  <!-- <a href="#" class="btn btn-neutral btn-icon text-green mx-2">
                     <i class="ni ni-sound-wave mr-0 align-middle"></i>
                     <span class="btn-inner--text">查詢</span>
-                  </a>
+                  </a> -->
                   <base-button type="success" class="my-4">查詢</base-button>
                 </b-col>
               </b-row>
