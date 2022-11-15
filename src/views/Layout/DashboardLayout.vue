@@ -50,16 +50,6 @@
         >
         </sidebar-item>
 
-        <!-- <sidebar-item
-          v-if="state.permissions.add"
-          :link="{
-            name: '系統管理作業',
-            path: '/role-add',
-            icon: 'ni ni-settings-gear-65 text-info',
-          }"
-        >
-        </sidebar-item> -->
-
         <a class="nav-link" v-b-toggle href="#collapse-0" @click.prevent>系統管理作業</a>
         <b-collapse id="collapse-0" class="mt-2">
             <a class="nav-link" v-b-toggle href="#collapse-1" @click.prevent>授權管理</a>
@@ -106,16 +96,6 @@
             </b-collapse>
         </b-collapse>
 
-        
-        <!-- 
-        <sidebar-item
-                  v-if="state.permissions.edit"
-                  :link="{
-                    name: '費用分攤',
-                    path: '/tables',
-                    icon: 'ni ni-money-coins text-pink'
-                  }">
-        </sidebar-item> -->
       </template>
 
       <template slot="links-after">
@@ -129,27 +109,6 @@
         </sidebar-item>
       </template>
 
-      <!-- <template slot="links-after">
-        <hr class="my-3">
-        <h6 class="navbar-heading p-0 text-muted">Documentation</h6>
-
-        <b-nav class="navbar-nav mb-md-3">
-          <b-nav-item
-               href="https://www.creative-tim.com/learning-lab/bootstrap-vue/quick-start/argon-dashboard"
-               >
-              <i class="ni ni-spaceship"></i>
-              <b-nav-text class="p-0">Getting started</b-nav-text>
-          </b-nav-item>
-          <b-nav-item href="https://www.creative-tim.com/learning-lab/bootstrap-vue/colors/argon-dashboard">
-              <i class="ni ni-palette"></i>
-              <b-nav-text class="p-0">Foundation</b-nav-text>
-          </b-nav-item>
-          <b-nav-item href="https://www.creative-tim.com/learning-lab/bootstrap-vue/avatar/argon-dashboard">
-              <i class="ni ni-ui-04"></i>
-              <b-nav-text class="p-0">Components</b-nav-text>
-          </b-nav-item>
-        </b-nav>
-      </template> -->
     </side-bar>
     <div class="main-content">
       <dashboard-navbar :type="$route.meta.navbarType"></dashboard-navbar>
@@ -160,7 +119,6 @@
           <router-view></router-view>
         </fade-transition>
       </div>
-      <!-- <content-footer v-if="!$route.meta.hideFooter"></content-footer> -->
     </div>
   </div>
 </template>

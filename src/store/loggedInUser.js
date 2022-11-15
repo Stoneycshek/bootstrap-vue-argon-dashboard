@@ -11,7 +11,3 @@ export const state = Vue.observable({
     delete: true,
   }
 })
-
-// export default ()=> state
-// export const postsCount = () => state.posts.length
-// export const updateName = (newName) => state.name = newName

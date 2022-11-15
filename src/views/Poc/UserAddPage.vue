@@ -57,25 +57,8 @@
                 </b-col>
               </b-row>
 
-              <!-- <b-row>
-                <b-col>
-                    <label for="datepicker-buttons">開始日期</label>
-                    <b-form-datepicker
-                        id="datepicker-buttons"
-                        today-button
-                        reset-button
-                        close-button
-                        locale="en"
-                    ></b-form-datepicker>
-                </b-col>
-              </b-row> -->
-
               <b-row class="">
                 <b-col class="text-right">
-                  <!-- <a href="#" class="btn btn-neutral btn-icon text-green mx-2">
-                    <i class="ni ni-sound-wave mr-0 align-middle"></i>
-                    <span class="btn-inner--text">查詢</span>
-                  </a> -->
                   <base-button type="success" class="my-4">查詢</base-button>
                 </b-col>
               </b-row>
